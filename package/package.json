@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "fluent-env",
   "author": "Jonas Galvez <jonasgalvez@gmail.com>",
   "files": [
