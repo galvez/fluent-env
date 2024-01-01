@@ -12,8 +12,7 @@
     "config.js",
     "flags.js",
     "shared.js",
-    "warnings.js",
-    "README.md"
+    "warnings.js"
   ],
   "exports": {
     ".": "./index.js",
