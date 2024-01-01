@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "fluent-env",
   "author": "Jonas Galvez <jonasgalvez@gmail.com>",
   "files": [
@@ -12,7 +12,8 @@
     "config.js",
     "flags.js",
     "shared.js",
-    "warnings.js"
+    "warnings.js",
+    "README.md"
   ],
   "exports": {
     ".": "./index.js",
