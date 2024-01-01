@@ -43,7 +43,7 @@ yarn add fluent-env
 
 ## Tutorial
 
-1) Create a file named `.env.schema` with your environment schema. All methods from `fluent-json-schema` are **sglobally available** in the scope of this file, the exception is `enum()` which can't be a global due to its status as a reserved keyword, so it's aliased to `values()`.
+1) Create a file named `.env.schema` with your environment schema. All methods from `fluent-json-schema` are **globally available** in the scope of this file, the exception is `enum()` which can't be a global due to its status as a reserved keyword, so it's aliased to `values()`.
 
    ```js
    NODE_ENV=values(['production', 'development', 'test'])
