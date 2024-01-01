@@ -1,8 +1,10 @@
 {
   "type": "module",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0",
   "name": "fluent-env",
   "files": [
+    "auto.js",
+    "defaults.js",
     "index.js",
     "environment.js",
     "schema.js",
@@ -13,8 +15,7 @@
   ],
   "exports": {
     ".": "./index.js",
-    "./auto": "./auto.js",
-    "./defaults": "./defaults.js"
+    "./auto": "./auto.js"
   },
   "main": "index.js",
   "dependencies": {
