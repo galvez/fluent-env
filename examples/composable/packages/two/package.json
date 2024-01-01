@@ -1,0 +1,8 @@
+{
+  "name": "two",
+  "type": "module",
+  "dependencies": {
+    "application": "workspace:^",
+  	"fluent-env": "workspace:^"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "version": "0.1.0-rc.1",
+  "name": "fluent-env",
+  "files": [
+    "index.js",
+    "environment.js",
+    "schema.js",
+    "config.js",
+    "flags.js",
+    "shared.js",
+    "warnings.js"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./auto": "./auto.js",
+    "./defaults": "./defaults.js"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "dotenv-expand": "^10.0.0",
+    "env-schema": "^5.2.1",
+    "fluent-json-schema": "^4.2.1",
+    "pretty-error": "^4.0.0",
+    "process-warning": "^3.0.0"
+  }
+}

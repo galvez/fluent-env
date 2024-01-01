@@ -1,0 +1,7 @@
+{
+  "name": "application",
+  "type": "module",
+  "dependencies": {
+  	"fluent-env": "workspace:^"
+  }
+}

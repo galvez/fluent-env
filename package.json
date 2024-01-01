@@ -1,0 +1,14 @@
+{
+  "private": "true",
+  "scripts": {
+    "lint": "biome check . --apply",
+    "test": "vitest ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
+    "oxlint": "^0.0.22"
+  },
+  "dependencies": {
+    "vitest": "^1.1.1"
+  }
+}
