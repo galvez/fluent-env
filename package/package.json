@@ -2,6 +2,7 @@
   "type": "module",
   "version": "0.1.0",
   "name": "fluent-env",
+  "author": "Jonas Galvez <jonasgalvez@gmail.com>",
   "files": [
     "auto.js",
     "defaults.js",
