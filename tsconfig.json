@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "nodenext",
+    "allowImportingTsExtensions": true,
+    "module": "nodenext",
+    "declaration": true,
+    "target": "esnext",
+    "emitDeclarationOnly": true,    
+    "outDir": "package/dist/types"
+  },
+  "include": ["package/*"]
+}

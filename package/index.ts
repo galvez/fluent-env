@@ -1,14 +1,23 @@
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
-export { S } from 'fluent-json-schema'
-import PrettyError from 'pretty-error'
-import configDefaults from './defaults.js'
 
-export async function setup(inlineConfig = {}) {
+import configDefaults from './defaults.ts'
+import type { FluentEnvConfig } from './defaults.ts'
+
+import PrettyError from 'pretty-error'
+
+export { S } from 'fluent-json-schema'
+
+export async function setup(inlineConfig: FluentEnvConfig) {
   const userConfig = await loadConfig(inlineConfig)
-  const config = Object.assign({}, configDefaults, userConfig, inlineConfig)
+  const config: FluentEnvConfig = Object.assign(
+    {},
+    configDefaults,
+    userConfig,
+    inlineConfig,
+  )
   const env = config.loadEnvironment(config)
-  const schema = config.loadSchema(config, env)
+  const schema = config.loadSchema(config)
   const pe = new PrettyError()
   try {
     config.createEnvironment(
@@ -23,7 +32,7 @@ export async function setup(inlineConfig = {}) {
 
 export const defaults = configDefaults
 
-async function loadConfig(config) {
+async function loadConfig(config: FluentEnvConfig) {
   const configPath = join(config.root, 'env.config.js')
   if (existsSync(configPath)) {
     const envConfig = await import(configPath)

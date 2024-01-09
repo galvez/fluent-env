@@ -1,13 +1,14 @@
 import { existsSync, readdirSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
-import { setup } from './index.js'
-import { lookupFileLocation } from './shared.js'
+import type { FluentEnvConfig } from './defaults.ts'
+import { setup } from './index.ts'
+import { lookupFileLocation } from './shared.ts'
 
 await setup({
   root: resolveRoot(),
-})
+} as FluentEnvConfig)
 
-function resolveRoot() {
+function resolveRoot(): string {
   if (process.argv[1].includes('node_modules')) {
     return process.argv[1].slice(0, process.argv[1].indexOf('/node_modules'))
   }

@@ -1,14 +1,17 @@
 {
+  "type": "module",
   "private": "true",
   "scripts": {
-    "lint": "biome check . --apply",
+    "build": "node build && tsc",
+    "lint": "tsc --noEmit && biome check . --apply",
     "test": "vitest ."
   },
   "devDependencies": {
     "@biomejs/biome": "^1.4.1",
-    "oxlint": "^0.0.22"
-  },
-  "dependencies": {
+    "@types/node": "^20.10.7",
+    "esbuild-node-externals": "^1.12.0",
+    "typescript": "^5.3.3",
+    "esbuild": "^0.19.11",
     "vitest": "^1.1.1"
   }
 }

@@ -1,9 +1,17 @@
 {
-	"javascript": {
-		"formatter": {
-			"indentStyle": "space",
-			"semicolons": "asNeeded",
-			"quoteStyle": "single"
-		}
-	}
+  "files": {
+    "ignore": ["package/dist/*"]
+  },
+  "javascript": {
+    "formatter": {
+      "indentStyle": "space",
+      "semicolons": "asNeeded",
+      "quoteStyle": "single"
+    }
+  },
+  "json": {
+    "formatter": {
+      "indentStyle": "space"
+    }
+  }
 }

@@ -3,22 +3,18 @@
   "version": "0.1.2",
   "name": "fluent-env",
   "author": "Jonas Galvez <jonasgalvez@gmail.com>",
-  "files": [
-    "auto.js",
-    "defaults.js",
-    "index.js",
-    "environment.js",
-    "schema.js",
-    "config.js",
-    "flags.js",
-    "shared.js",
-    "warnings.js"
-  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
-    ".": "./index.js",
-    "./auto": "./auto.js"
-  },
-  "main": "index.js",
+    "./auto": {
+      "import": "./dist/auto.js"
+    },
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },  
   "dependencies": {
     "dotenv": "^16.3.1",
     "dotenv-expand": "^10.0.0",

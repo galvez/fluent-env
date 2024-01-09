@@ -1,10 +1,12 @@
 import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 
-import DotEnv from 'dotenv'
-import DotEnvExpand from 'dotenv-expand'
+import * as DotEnv from 'dotenv'
+import * as DotEnvExpand from 'dotenv-expand'
 
-import { lookupFileLocation } from './shared.js'
+import { lookupFileLocation } from './shared.ts'
+
+import type { FluentEnvConfig } from './defaults.ts'
 
 // This file holds the code responsible for
 // loading .env and its variants via DotEnv.config()
@@ -14,8 +16,16 @@ import { lookupFileLocation } from './shared.js'
 // of loading — which in this case is the same as the one
 // used by Vite, as detailed in the README
 
-export function loadEnvironment(config) {
-  const env = {}
+export type Flags = {
+  name: string
+} & Record<string, string | boolean>
+
+export type Environment = {
+  flags?: Flags
+} & Record<string, string | null>
+
+export function loadEnvironment(config: FluentEnvConfig) {
+  const env: Environment = {}
 
   dotEnvIfExists(config, '.env', env)
   dotEnvIfExists(config, '.env.local', env)

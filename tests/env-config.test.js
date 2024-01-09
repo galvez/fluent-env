@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
-import { setup } from 'fluent-env'
 import { expect, test, vi } from 'vitest'
+import { setup } from '../package/dist/index.js'
 
 test('should execute all hooks', async () => {
   const config = await import('./fixtures/env-config/env.config.js')

@@ -1,15 +1,20 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { createContext as createV8Context, runInContext } from 'node:vm'
+
 import EnvSchema from 'env-schema'
 import { S } from 'fluent-json-schema'
-import { lookupFileLocation } from './shared.js'
+
+import { lookupFileLocation } from './shared.ts'
 import {
   warnDuplicateSchemaDefinitions,
   warnMissingSchemaDefinition,
-} from './warnings.js'
+} from './warnings.ts'
 
-export function loadSchema(config) {
+import type { JSONSchema } from 'fluent-json-schema'
+import type { FluentEnvConfig } from './defaults.ts'
+
+export function loadSchema(config: FluentEnvConfig) {
   const hasExportedSchema =
     config.schema && Object.keys(config.schema).length > 0
   const schemaDir = lookupFileLocation(config.root, '.env.schema')
@@ -33,14 +38,14 @@ export function loadSchema(config) {
   return null
 }
 
-export function validateEnvironment(config, schema, env) {
+export function validateEnvironment(config: FluentEnvConfig, schema, env) {
   if (!schema) {
     return env
   }
   return EnvSchema({ schema, data: env })
 }
 
-export function createContextGetter(config, vars) {
+export function createContextGetter(config: FluentEnvConfig, vars) {
   return (_, prop) => {
     if (prop in S) {
       return S[prop]
@@ -55,7 +60,7 @@ export function createContextGetter(config, vars) {
   }
 }
 
-export function createContext(config, vars) {
+export function createContext(config: FluentEnvConfig, vars) {
   return new Proxy(
     {},
     {
@@ -71,7 +76,7 @@ export function createContext(config, vars) {
 export function createSchema(vars) {
   let fluentSchema = S.object()
   for (const [prop, value] of Object.entries(vars)) {
-    fluentSchema = fluentSchema.prop(prop, value)
+    fluentSchema = fluentSchema.prop(prop, value as JSONSchema)
   }
   return fluentSchema
 }
